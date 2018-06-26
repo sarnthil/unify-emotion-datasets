@@ -34,3 +34,7 @@ This will create a new file called `unified-dataset.jsonl` in the same folder.
 Also, we advise you to cite the papers corresponding to the datasets you use.
 The corresponding `bibtex` citations you find in the file `datasets/README.md` or while
 running `download_datasets.py`. 
+
+# Reference 
+If you plan to use this corpus, please cite it as follows: 
+Laura Ana Maria Bostan and Roman Klinger. A survey on annotated data sets for emotion classification in text. In Proceedings of COLING 2018, the 27th International Conference on Computational Linguistics, Santa Fe, USA, August 2018.
