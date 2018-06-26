@@ -1,0 +1,214 @@
+{
+  "_settings": {
+    "folder": "datasets"
+  },
+  "grounded_emotions": [
+    {
+      "download": {"url": "http://web.eecs.umich.edu/~mihalcea/downloads/GroundedEmotions.tar.gz"}
+    },
+    {
+      "cite": "@inproceedings{Liu17,\n  author = {Liu, V. and C. Banea and R. Mihalcea},\n  title = {Grounded Emotions},\n  bootktile = {International Conference on Affective Computing and Intelligent Interaction (ACII 2017}},\n  address = {San Antonio, Texas},\n  year = {2017}}"
+    }
+  ],
+  "affectivetext": [
+    {
+      "download": {"url": "http://web.eecs.umich.edu/~mihalcea/downloads/AffectiveText.Semeval.2007.tar.gz"}
+    },
+    {
+      "cite": "@inproceedings{strapparava2007semeval, \n    title={Semeval-2007 task 14: Affective text}, \n    author={Strapparava, Carlo and Mihalcea, Rada}, \n    booktitle={Proceedings of the 4th International Workshop on Semantic Evaluations},\n    pages={70--74}, \n    year={2007}, \n    organization={Association for Computational Linguistics} \n}"
+    }
+  ],
+  "ssec": [
+    {
+      "download": {"url": "http://www.romanklinger.de/ssec/ssec-aggregated-withtext.zip"}
+    },
+    {
+      "download": {"url": "http://www.romanklinger.de/ssec/ssec-aggregated.zip"}
+    },
+    {
+      "download": {"url": "http://alt.qcri.org/semeval2016/task6/data/uploads/stancedataset.zip"}
+    },
+    {
+      "download": {"url": "http://www.romanklinger.de/ssec/preparecorpus.sh.gz"}
+    },
+    {
+      "download": {"url": "http://www.romanklinger.de/ssec/train-annotations.csv"}
+    },
+    {
+      "download": {"url": "http://www.romanklinger.de/ssec/test-annotations.csv"}
+    },
+    {
+      "command": "gunzip preparecorpus.sh.gz && chmod +x preparecorpus.sh && yes y | ./preparecorpus.sh"
+    },
+    {
+      "cite": "@inproceedings{schuff2017annotation,\n  title={Annotation, Modelling and Analysis of Fine-Grained Emotions on a Stance and Sentiment Detection Corpus},\n  author={Schuff, Hendrik and Barnes, Jeremy and Mohme, Julian and Pad{'o}, Sebastian and Klinger, Roman},\n  booktitle={Proceedings of the 8th Workshop on Computational Approaches to Subjectivity, Sentiment and Social Media Analysis},\n  pages={13--23},\n  year={2017}\n}"
+    }
+  ],
+  "isear": [
+    {
+      "license": "gplv3.txt"
+    },
+    {
+      "download": {"url": "https://raw.githubusercontent.com/sinmaniphel/py_isear_dataset/master/isear.csv"}
+    },
+    {
+      "message": "links for the original data http://emotion-research.net/toolbox/toolboxdatabase.2006-10-13.2581092615397 http://www.affective-sciences.org/index.php/download_file/view/395/296/ "
+    }
+  ],
+  "crowdflower_data": [
+    {
+      "download": {"url": "https://www.crowdflower.com/wp-content/uploads/2016/07/text_emotion.csv"}
+    }
+  ],
+  "fb-valence-arousal-anon": [
+    {
+      "download": {"url": "http://wwbp.org/public_data/dataset-fb-valence-arousal-anon.csv"}
+    },
+    {
+      "cite": "@inproceedings{preoctiuc2016modelling, \n    title={Modelling valence and arousal in facebook posts}, \n    author={Preo{\\c{t}}iuc-Pietro, Daniel and Schwartz, H Andrew and Park, Gregory and Eichstaedt, Johannes and Kern, Margaret and Ungar, Lyle and Shulman, Elisabeth},\n    booktitle={Proceedings of the 7th Workshop on Computational Approaches to Subjectivity, Sentiment and Social Media Analysis}, \n    pages={9--15},\n    year={2016} }"
+    }
+  ],
+  "EmoBank": [
+    {
+      "license": "cc-by-4.txt"
+    },
+    {
+      "git": "https://github.com/JULIELab/EmoBank"
+    },
+    {
+      "cite": "@article{buechel2017emobank,\n     title={EMOBANK: Studying the Impact of Annotation Perspective and Representation Format on Dimensional Emotion Analysis},\n     author={Buechel, Sven and Hahn, Udo},\n     journal={EACL 2017},\n     pages={578},\n     year={2017}}"
+    }
+  ],
+  "dailydialog": [
+    {
+      "license": "Copyright:\nThe original copyright of all the conversations belongs to the source owner.\nThe copyright of annotation belongs to our group, and they are free to the public.\nThe dataset is only for research purposes. Without permission, it may not be used for any commercial purposes."
+    },
+    {
+      "download": {"url": "http://yanran.li/files/ijcnlp_dailydialog.zip"}
+    },
+    {
+      "message": "see http://yanran.li/dailydialog.html"
+    },
+    {
+      "cite": "@article{li2017dailydialog, \n     title={DailyDialog: A Manually Labelled Multi-turn Dialogue Dataset}, \n     author={Li, Yanran and Su, Hui and Shen, Xiaoyu and Li, Wenjie and Cao, Ziqiang and Niu, Shuzi},\n     journal={arXiv preprint arXiv:1710.03957}, \n     year={2017} \n }"
+    }
+  ],
+  "tales-emotion": [
+    {
+      "license": "gplv3.txt"
+    },
+    {
+      "download": {"url": "http://people.rc.rit.edu/~coagla/affectdata/Potter.tar.gz"}
+    },
+    {
+      "download": {"url": "http://people.rc.rit.edu/~coagla/affectdata/HCAndersen.tar.gz"}
+    },
+    {
+      "download": {"url": "http://people.rc.rit.edu/~coagla/affectdata/Grimms.tar.gz"}
+    },
+    {
+      "download": {"url": "http://people.rc.rit.edu/~coagla/affectdata/Potter167All4labsagree.txt"}
+    },
+    {
+      "download": {"url": "http://people.rc.rit.edu/~coagla/affectdata/hcand460All4labsagree.txt"}
+    },
+    {
+      "download": {"url": "http://people.rc.rit.edu/~coagla/affectdata/GrimmsAll4labsagree.txt"}
+    },
+    {
+      "download": {"url": "http://people.rc.rit.edu/~coagla/affectdata/Potter-other.tar.gz"}
+    },
+    {
+      "download": {"url": "http://people.rc.rit.edu/~coagla/affectdata/HCAndersen-other.tar.gz"}
+    },
+    {
+      "download": {"url": "http://people.rc.rit.edu/~coagla/affectdata/Grimms-other.tar.gz"}
+    },
+    {
+      "cite": "@inproceedings{alm2005emotions, \n  title={Emotions from text: machine learning  for text-based emotion prediction}, \n  author={Alm, Cecilia Ovesdotter and Roth, Dan and Sproat, Richard}, \n  booktitle={Proceedings of the conference on human language technology and empirical methods in natural language processing},\n pages={579--586},\n year={2005}, \norganization={Association for Computational Linguistics}}"
+    }
+  ],
+  "emotion-cause": [
+    {
+      "download": {"url": "http://www.site.uottawa.ca/~diana/resources/emotion_stimulus_data/Dataset.zip"}
+    },
+    {
+      "message": "cite the paper"
+    },
+    {
+      "cite": "@inproceedings{ghazi2016detecting, \n     title={Detecting Emotion Stimuli in Emotion-Bearing Sentences.}, \n     author={Ghazi, Diman and Inkpen, Diana and Szpakowicz, Stan},    \n     booktitle={CICLing (2)}, \n     pages={152--165}, \n     year={2015}}"
+    }
+  ],
+  "emotiondata-aman": [
+    {
+      "message": "Emotion-Annotated Dataset\n\nThis dataset is available for academic research. Please email your request for the dataset to Prof. Szpakowicz at szpak@eecs.uottawa.ca (and cc me at saman@usc.edu).\n\nPlease use your official email address for correspondence. Also CC your supervisor, if you are a student.\nPlease mention the name and location of your institution.\nPlease provide a brief description of how you plan to use this dataset.\nPlease include an assurance that you will not share the dataset with anyone, and if you publish your work, you will cite our IJCNLP 2008 and TSD 2007 papers.\nPlease ask your supervisor to provide a similar assurance that s/he will not share the dataset with anyone, and will cite our work in any publications resulting from the use of this dataset. Should anyone ask for this dataset, please direct them to us."
+    },
+    {
+      "cite": "@inproceedings{aman2007identifying, \n     title={Identifying expressions of emotion in text},  \n     author={Aman, Saima and Szpakowicz, Stan}, \n     booktitle={Text, speech and dialogue}, \n     pages={196--205}, \n     year={2007}, \n     organization={Springer} \n }"
+    }
+  ],
+  "TEC": [
+    {
+      "license": "Terms of use:\n      The resources listed here are available free for research purposes. Cite the papers associated with the resources in your research papers and articles that make use of them. (The papers associated with each resource are listed below, and also in the individual READMEs.)\n\n\n      Do not redistribute the data. Direct interested parties to this page:\n      http://saifmohammad.com/WebPages/SentimentEmotionLabeledData.html\n\n\n      National Research Council Canada (NRC) disclaims any responsibility for the use of the lexicons listed here and does not provide technical support. However, the contact listed above will be happy to respond to queries and clarifications."
+    },
+    {
+      "download": {"url": "http://saifmohammad.com/WebDocs/Jan9-2012-tweets-clean.txt.zip"}
+    }
+  ],
+  "emoint": [
+    {
+      "license": "Terms of use:\n      The resources listed here are available free for research purposes. Cite the papers associated with the resources in your research papers and articles that make use of them. (The papers associated with each resource are listed below, and also in the individual READMEs.)\n\n\n      Do not redistribute the data. Direct interested parties to this page:\n      http://saifmohammad.com/WebPages/SentimentEmotionLabeledData.html\n\n\n      National Research Council Canada (NRC) disclaims any responsibility for the use of the lexicons listed here and does not provide technical support. However, the contact listed above will be happy to respond to queries and clarifications."
+    },
+    {
+      "download": {"url": "http://saifmohammad.com/WebDocs/EmoInt%20Train%20Data/anger-ratings-0to1.train.txt"}
+    },
+    {
+      "download": {"url": "http://saifmohammad.com/WebDocs/EmoInt%20Train%20Data/fear-ratings-0to1.train.txt"}
+    },
+    {
+      "download": {"url": "http://saifmohammad.com/WebDocs/EmoInt%20Train%20Data/joy-ratings-0to1.train.txt"}
+    },
+    {
+      "download": {"url": "http://saifmohammad.com/WebDocs/EmoInt%20Train%20Data/sadness-ratings-0to1.train.txt"}
+    },
+    {
+      "download": {"url": "http://saifmohammad.com/WebDocs/EmoInt%20Dev%20Data/anger-ratings-0to1.dev.target.txt"}
+    },
+    {
+      "download": {"url": "http://saifmohammad.com/WebDocs/EmoInt%20Dev%20Data/fear-ratings-0to1.dev.target.txt"}
+    },
+    {
+      "download": {"url": "http://saifmohammad.com/WebDocs/EmoInt%20Dev%20Data/joy-ratings-0to1.dev.target.txt"}
+    },
+    {
+      "download": {"url": "http://saifmohammad.com/WebDocs/EmoInt%20Dev%20Data/sadness-ratings-0to1.dev.target.txt"}
+    },
+    {
+      "download": {"url": "http://saifmohammad.com/WebDocs/EmoInt%20Test%20Gold%20Data/anger-ratings-0to1.test.gold.txt"}
+    },
+    {
+      "download": {"url": "http://saifmohammad.com/WebDocs/EmoInt%20Test%20Gold%20Data/fear-ratings-0to1.test.gold.txt"}
+    },
+    {
+      "download": {"url": "http://saifmohammad.com/WebDocs/EmoInt%20Test%20Gold%20Data/joy-ratings-0to1.test.gold.txt"}
+    },
+    {
+      "download": {"url": "http://saifmohammad.com/WebDocs/EmoInt%20Test%20Gold%20Data/sadness-ratings-0to1.test.gold.txt"}
+    },
+    {
+      "command": "cat *.txt >emoint_all"
+    }
+  ],
+  "electoraltweets": [
+    {
+      "license": "Terms of use:\n      The resources listed here are available free for research purposes. Cite the papers associated with the resources in your research papers and articles that make use of them. (The papers associated with each resource are listed below, and also in the individual READMEs.)\n\n\n      Do not redistribute the data. Direct interested parties to this page:\n      http://saifmohammad.com/WebPages/SentimentEmotionLabeledData.html\n\n\n      National Research Council Canada (NRC) disclaims any responsibility for the use of the lexicons listed here and does not provide technical support. However, the contact listed above will be happy to respond to queries and clarifications."
+    },
+    {
+      "download": {"url": "http://saifmohammad.com/WebDocs/ElectoralTweetsData.zip"}
+    },
+    {
+      "command": "mv ElectoralTweetsData/* ."
+    }
+  ]
+}
+
