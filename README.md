@@ -37,4 +37,5 @@ running `download_datasets.py`.
 
 # Reference 
 If you plan to use this corpus, please cite it as follows: 
+
 Laura Ana Maria Bostan and Roman Klinger. A survey on annotated data sets for emotion classification in text. In Proceedings of COLING 2018, the 27th International Conference on Computational Linguistics, Santa Fe, USA, August 2018.
