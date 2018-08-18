@@ -59,7 +59,7 @@ Options:
 ```
 For example if you want to train on TEC and test on SSEC do the following:
 
-    python3 classify_xvsy_logreg.py tec ssec -d
+    python3 classify_xvsy_logreg.py -d tec emoint 
 
 The names of the dataset are the ones used in the file `unified-dataset.jsonl` in the field `source`.
 
