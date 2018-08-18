@@ -452,7 +452,7 @@ def extract_fb_va(folder):
 
 if __name__ == "__main__":
     extractors = {
-        # "fb-valence-arousal-anon": extract_fb_va,
+        "fb-valence-arousal-anon": extract_fb_va,
         "crowdflower_data": extract_crowdflower,
         "dailydialog": extract_dailydialogs,
         "emotion-cause": extract_emotion_cause,
@@ -465,6 +465,7 @@ if __name__ == "__main__":
         "TEC": extract_tec,
         "emoint": extract_emoint,
         "electoraltweets": extract_electoraltweets,
+        "README.md": None,
     }
     meta_info = {
         "emotion_model": {
@@ -547,4 +548,4 @@ if __name__ == "__main__":
                 d.update(meta_info.get(name, metadata[name]))
                 json.dump(d, f)
                 f.write("\n")
-
+    print("All done; Created unified-dataset.jsonl")
