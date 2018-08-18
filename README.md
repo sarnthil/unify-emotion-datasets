@@ -6,7 +6,7 @@
 - `git`
 ## Installing Python dependencies
 
-- `pip3 install requests sh`
+- `pip3 install requests sh regex docopt`
 - `git clone git@github.com:sarnthil/unify-emotion-datasets.git`
 
 
@@ -36,7 +36,39 @@ running `download_datasets.py`.
 
 # Paper
 [An Analysis of Annotated Corpora for Emotion Classification in Text](http://aclweb.org/anthology/C18-1179.pdf)
+If you want to reuse the code for the emotion classification task, see the script `classify_xvsy_logreg.py`:
 
+ `python3 classify_xvsy_logreg.py --help` will show you the following: 
+
+``` 
+Classify using MaxEnt algorithm
+
+Usage:
+    classify_xvsy_logreg.py [options] <first> <second>
+    classify_xvsy_logreg.py [options] --all-vs <second>
+
+Options:
+    -j --json=<JSONFILE>  Filename of the json file [default: ../unified.jsonl]
+    -a --all-vs<=dataset> Dataset name of the testing data
+    -d --debug            Use a small word list and a fast classifier
+    -o --output=<OUTPUT>  Output folder [default: .]
+    -m --force-multi      Force using multi-label classification
+    -k --keep-last        Quit immediately if results file found
+```
+For example if you want to train on TEC and test on SSEC do the following:
+
+    python3 classify_xvsy_logreg.py tec ssec -d
+
+The names of the dataset are the ones used in the file `unified-dataset.jsonl` in the field `source`.
+
+# Tip
+Use [`jq`](https://stedolan.github.io/jq/manual/) for an easy interaction with the `unified-dataset.jsonl`
+
+Examples of how to use it for various tasks:
+- selecting the instances of that have as a source `crowdflower` or `tec`
+ `jq 'select(.source=="crowdflower" or .source =="tec")' <unified-dataset.jsonl | less `
+- count how often instances are annotated with high surprise per dataset
+`jq 'select(.emotions.surprise >0.5) | .source' <unified-dataset.jsonl | sort | uniq -c`   
 
 # Reference 
 If you plan to use this corpus, please use this citation:
@@ -54,3 +86,4 @@ If you plan to use this corpus, please use this citation:
   pdf = {http://aclweb.org/anthology/C18-1179.pdf}
 }
 ```
+
