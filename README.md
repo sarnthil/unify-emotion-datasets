@@ -4,9 +4,11 @@
 
 - `Python 3.6+`
 - `git`
+
 ## Installing Python dependencies
 
-- `pip3 install requests sh regex docopt`
+- `pip3 install requests sh` 
+- `pip3 install regex docopt numpy sklearn scipy`, if you want to use `classify_xvsy_logreg.py`
 - `git clone git@github.com:sarnthil/unify-emotion-datasets.git`
 
 
