@@ -25,7 +25,6 @@ In case the dataset is not obtainable directly you will be given instructions on
 
 Then run the script that unifies the downloaded datasets, which will be located in `unify-emotion-datasets/datasets/`:
 
-
 `python3 create_unified_datasets.py`
 
 
@@ -34,6 +33,10 @@ This will create a new file called `unified-dataset.jsonl` in the same folder.
 Also, we advise you to cite the papers corresponding to the datasets you use.
 The corresponding `bibtex` citations you find in the file `datasets/README.md` or while
 running `download_datasets.py`. 
+
+# Paper
+[An Analysis of Annotated Corpora for Emotion Classification in Text](http://aclweb.org/anthology/C18-1179.pdf)
+
 
 # Reference 
 If you plan to use this corpus, please use this citation:
