@@ -2,12 +2,12 @@
 
 ## System packages
 
-- `Python 3.6`
+- `Python 3.6+`
 - `git`
 ## Installing Python dependencies
 
 - `pip3 install requests sh`
-- `git clone git@bitbucket.org:laurabostan/unify-emotion-datasets.git`
+- `git clone git@github.com:sarnthil/unify-emotion-datasets.git`
 
 
 This will create a new folder called `unify-emotion-datasets`.
@@ -36,6 +36,18 @@ The corresponding `bibtex` citations you find in the file `datasets/README.md` o
 running `download_datasets.py`. 
 
 # Reference 
-If you plan to use this corpus, please cite it as follows: 
+If you plan to use this corpus, please use this citation:
 
-Laura Ana Maria Bostan and Roman Klinger. A survey on annotated data sets for emotion classification in text. In Proceedings of COLING 2018, the 27th International Conference on Computational Linguistics, Santa Fe, USA, August 2018.
+```
+@inproceedings{Bostan2018,
+  author = {Bostan, Laura Ana Maria and Klinger, Roman},
+  title = {An Analysis of Annotated Corpora for Emotion Classification in Text},
+  booktitle = {Proceedings of the 27th International Conference on Computational Linguistics},
+  year = {2018},
+  publisher = {Association for Computational Linguistics},
+  pages = {2104--2119},
+  location = {Santa Fe, New Mexico, USA},
+  url = {http://aclweb.org/anthology/C18-1179},
+  pdf = {http://aclweb.org/anthology/C18-1179.pdf}
+}
+```
