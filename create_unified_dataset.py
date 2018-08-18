@@ -402,9 +402,9 @@ def extract_ssec(folder):
         aggregates = [[x for x in fields[i::8] if x != -1] for i in range(8)]
         # No annotation
         if "XXXXXXXXXXXX" in line:
-            raise StopIteration
+            return
         if len(aggregates[0]) < 2:  # less than two annotators
-            raise StopIteration
+            return
         d = {"anger": 0, "joy": 0, "sadness": 0, "disgust": 0, "fear": 0, "surprise": 0}
         for emotion in mappings:
             judgements = aggregates[mappings[emotion]]
