@@ -29,7 +29,9 @@ def emotion_mapping(emotions, dataset_emotions):
         "noemo",
         "confusion",
         "anticipation",
-    ]  # ALL of them; 11ish
+        "shame",
+        "guilt"
+    ]  # ALL of them; 13ish
 
     d = {emotion: None for emotion in all_emotions}
     for emotion in all_emotions:
@@ -168,8 +170,8 @@ def extract_isear(folder):
         "3": "anger",
         "4": "sadness",
         "5": "disgust",
-        "6": "sadness",
-        "7": "sadness",
+        "6": "shame",
+        "7": "guilt",
     }
     isear_emotions = path.join(folder, "isear.csv")
     with open(isear_emotions) as f:
