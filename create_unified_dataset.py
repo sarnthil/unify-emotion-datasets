@@ -337,7 +337,7 @@ def extract_dailydialogs(folder):
             for emoval, text in zip(fline.strip().split(" "), gline.split("__eou__")):
                 emoname = mapping[int(emoval)]
                 d = emotion_mapping({emoname: 1}, mapping.values())
-                yield {"source": "dailydialogues", "text": text.strip(), "emotions": d}
+                yield {"source": "dailydialog", "text": text.strip(), "emotions": d}
 
 
 def extract_crowdflower(folder):
@@ -455,7 +455,7 @@ def extract_fb_va(folder):
 if __name__ == "__main__":
     extractors = {
         "fb-valence-arousal-anon": extract_fb_va,
-        "crowdflower_data": extract_crowdflower,
+        "crowdflower": extract_crowdflower,
         "dailydialog": extract_dailydialogs,
         "emotion-cause": extract_emotion_cause,
         "emotiondata-aman": extract_emotiondata_aman,
@@ -483,13 +483,13 @@ if __name__ == "__main__":
             "Ekman+ne": ["emotiondata-aman"],
             # "VAD": ["EmoBank"],
             "Ekman-disgust-surprise": ["emoint"],
-            "Ekman+CF": ["crowdflower_data"],
+            "Ekman+CF": ["crowdflower"],
             "Ekman+ET": ["electoraltweets"],
             "HappySad": ["grounded_emotions"],
             # read the paper and table 1
         },
         "annotation_procedure": {
-            "crowdsourcing": ["crowdflower_data"],
+            "crowdsourcing": ["crowdflower"],
             "expert annotation": ["emoint", "TEC"],
         },
         "domain": {
@@ -498,7 +498,7 @@ if __name__ == "__main__":
                 "ssec",
                 "electoraltweets",
                 "emoint",
-                "crowdflower_data",
+                "crowdflower",
                 "grounded_emotions",
             ],
             "facebook-messages": ["fb-valence-arousal-anon"],
@@ -515,7 +515,7 @@ if __name__ == "__main__":
                 "TEC",
                 "electoraltweets",
                 "emoint",
-                "crowdflower_data",
+                "crowdflower",
                 "grounded_emotions",
                 "dailydialog",
                 "emotiondata-aman",
