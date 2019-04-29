@@ -55,7 +55,7 @@
       "message": "links for the original data http://emotion-research.net/toolbox/toolboxdatabase.2006-10-13.2581092615397 http://www.affective-sciences.org/index.php/download_file/view/395/296/ "
     }
   ],
-  "crowdflower_data": [
+  "crowdflower": [
     {
       "download": {"url": "https://www.crowdflower.com/wp-content/uploads/2016/07/text_emotion.csv"}
     }
