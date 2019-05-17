@@ -15,7 +15,13 @@ def download(_, target, droot, dataset):
     url = target["url"]
     fname = target.get("target", url.split("/")[-1])
 
-    r = requests.get(url, stream=True)
+    r = requests.get(
+        url,
+        stream=True,
+        headers={
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1 Safari/605.1.15"
+        },
+    )
     chars = "-\\|/"
     with open(f"{droot}/{fname}", "wb") as f:
         for i, chunk in enumerate(r.iter_content(chunk_size=1024)):
