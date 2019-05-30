@@ -1,0 +1,10 @@
+datasets/
+*.jsonl
+*.json
+*.csv
+*.tsv
+*.txt
+*.pkl
+*.zip
+project.toml
+.DS_Store
