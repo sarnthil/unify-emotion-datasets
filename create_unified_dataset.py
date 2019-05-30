@@ -83,7 +83,12 @@ def extract_tec(folder):
 
 
 def extract_emoint(folder):
-    mapping = {"joy": "joy", "sadness": "sadness", "anger": "anger", "fear": "fear"}
+    mapping = {
+        "joy": "joy",
+        "sadness": "sadness",
+        "anger": "anger",
+        "fear": "fear",
+    }
 
     emofile = path.join(folder, "emoint_all")
     with open(emofile) as e:
@@ -92,7 +97,12 @@ def extract_emoint(folder):
             tweet = eline.split("\t")[1].strip()
             emoname = mapping.get(emotion)
             d = emotion_mapping({emoname: 1}, mapping.values())
-            yield {"source": "emoint", "text": tweet, "emotions": d, "split": None}
+            yield {
+                "source": "emoint",
+                "text": tweet,
+                "emotions": d,
+                "split": None,
+            }
 
 
 def extract_electoraltweets(folder):
@@ -146,7 +156,8 @@ def extract_electoraltweets(folder):
             next(e)
             for eline in e:
                 emotions = [
-                    emo.strip() for emo in eline.split("\t")[15].strip().split(" or ")
+                    emo.strip()
+                    for emo in eline.split("\t")[15].strip().split(" or ")
                 ]
                 tweet = eline.split("\t")[13].strip()
                 emonames = [mapping.get(emotion) for emotion in emotions]
@@ -325,14 +336,18 @@ def extract_affectivetext(folder):
         # TODO add a field _train, _test , _dev in the unified dataset
         subfolder = f"AffectiveText.{part}"
         textfile = path.join(folder, subfolder, f"affectivetext_{part}.xml")
-        emofile = path.join(folder, subfolder, f"affectivetext_{part}.emotions.gold")
+        emofile = path.join(
+            folder, subfolder, f"affectivetext_{part}.emotions.gold"
+        )
         with open(textfile) as t, open(emofile) as e:
             next(t)  # skip header
             for tline, eline in zip(t, e):
                 _, *emotions = eline.strip().split(" ")
                 # emoname = mapping.get(emotion)
                 # d = emotion_mapping({emoname: 1}, mapping.values())
-                d = {columns[i]: int(emo) / 100 for i, emo in enumerate(emotions)}
+                d = {
+                    columns[i]: int(emo) / 100 for i, emo in enumerate(emotions)
+                }
                 d = emotion_mapping(d, columns)
 
                 yield {
@@ -355,10 +370,16 @@ def extract_dailydialogs(folder):
     gname = path.join(folder, subfolder, "dialogues_text.txt")
     with open(fname) as f, open(gname) as g:
         for fline, gline in zip(f, g):
-            for emoval, text in zip(fline.strip().split(" "), gline.split("__eou__")):
+            for emoval, text in zip(
+                fline.strip().split(" "), gline.split("__eou__")
+            ):
                 emoname = mapping[int(emoval)]
                 d = emotion_mapping({emoname: 1}, mapping.values())
-                yield {"source": "dailydialog", "text": text.strip(), "emotions": d}
+                yield {
+                    "source": "dailydialog",
+                    "text": text.strip(),
+                    "emotions": d,
+                }
 
 
 def extract_crowdflower(folder):
@@ -478,7 +499,14 @@ def extract_ssec(folder):
             return
         if len(aggregates[0]) < 2:  # less than two annotators
             return
-        d = {"anger": 0, "joy": 0, "sadness": 0, "disgust": 0, "fear": 0, "surprise": 0}
+        d = {
+            "anger": 0,
+            "joy": 0,
+            "sadness": 0,
+            "disgust": 0,
+            "fear": 0,
+            "surprise": 0,
+        }
         for emotion in mappings:
             judgements = aggregates[mappings[emotion]]
             # we take a 1 if at least 1 annotator annotated it with
@@ -639,7 +667,9 @@ if __name__ == "__main__":
 
     counter = itertools.count()
     with open("unified-dataset.jsonl", "w") as f:
-        for folder in itertools.chain(iglob("datasets/*"), iglob("own-datasets/*")):
+        for folder in itertools.chain(
+            iglob("datasets/*"), iglob("own-datasets/*")
+        ):
             name = folder.split("/")[-1]
             if name not in extractors:
                 print("No extractor defined for", name)
@@ -650,7 +680,11 @@ if __name__ == "__main__":
             for line in extractors[name](folder):
                 d = {
                     "id": next(counter),
-                    "VAD": {"valence": None, "arousal": None, "dominance": None},
+                    "VAD": {
+                        "valence": None,
+                        "arousal": None,
+                        "dominance": None,
+                    },
                 }
                 d.update(line)
                 d.update(meta_info.get(name, metadata[name]))
