@@ -7,9 +7,30 @@ import os.path as path
 from collections import Counter
 from glob import iglob
 
-# take all info from each dataset!
-# valence, arousal, dominance, intensity, mood, etc
-# add the test/train split as a field
+class WeirdlyEncodedFile:
+    def __init__(self, fh):
+        self.fh = fh
+
+    @staticmethod
+    def decode(something):
+        try:
+            return (
+                something.decode("utf-8").encode("latin-1").decode("windows-1252")
+            )
+        except UnicodeEncodeError:
+            return something.decode("utf-8")
+
+    def readline(self):
+        return self.decode(self.fh.readline())
+
+    def read(self):
+        return self.decode(self.fh.read())
+
+    def __next__(self):
+        return self.decode(next(self.fh))
+
+    def __iter__(self):
+        return self
 
 
 def emotion_mapping(emotions, dataset_emotions):
@@ -371,7 +392,57 @@ def extract_crowdflower(folder):
             # skipping them.
             if "\ufffd" in text:
                 continue
-            yield {"source": "crowdflower", "text": text, "emotions": d, "split": None}
+            yield {
+                "source": "crowdflower",
+                "text": text,
+                "emotions": d,
+                "split": None,
+            }
+
+
+def extract_meld(sub_dataset):
+    """ Extract all data in MELD """
+    def inner(folder):
+        mapping = {
+            "anger": "anger",
+            "joy": "joy",
+            "neutral": "noemo",
+            "sadness": "sadness",
+            "surprise": "surprise",
+            "fear": "fear",
+            "disgust": "disgust",
+            "Joyful": "joy",
+            "Sad": "sadness",
+            "Neutral": "noemo",
+            "Scared": "fear",
+            "Mad": "anger",
+        }
+
+        for filename in iglob(f"{folder}/*"):
+            part = (
+                "train"
+                if "train" in filename
+                else "test"
+                if "test" in filename
+                else "dev"
+            )
+            with open(filename, "rb") as f:
+                f = WeirdlyEncodedFile(f)
+                reader = csv.DictReader(f)
+                for line in reader:
+                    emoname = mapping.get(line["Emotion"])
+                    if not emoname:
+                        continue
+                    d = emotion_mapping({emoname: 1}, mapping.values())
+                    text = line["Utterance"]
+                    yield {
+                        "source": sub_dataset,
+                        "text": text,
+                        "emotions": d,
+                        "split": part,
+                    }
+
+    return inner
 
 
 def extract_ssec(folder):
@@ -467,6 +538,9 @@ if __name__ == "__main__":
         "TEC": extract_tec,
         "emoint": extract_emoint,
         "electoraltweets": extract_electoraltweets,
+        "MELD": extract_meld("meld"),
+        "MELD_Dyadic": extract_meld("meld-dya"),
+        "emorynlp": extract_meld("emorynlp"),
         "README.md": None,
     }
     meta_info = {
@@ -522,6 +596,9 @@ if __name__ == "__main__":
                 "isear",
                 "emotion-cause",
                 "tales-emotion",
+                "MELD",
+                "MELD_Dyadic",
+                "emorynlp",
             ],
         },
     }
