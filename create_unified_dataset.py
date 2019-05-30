@@ -7,6 +7,7 @@ import os.path as path
 from collections import Counter
 from glob import iglob
 
+
 class WeirdlyEncodedFile:
     def __init__(self, fh):
         self.fh = fh
@@ -15,7 +16,9 @@ class WeirdlyEncodedFile:
     def decode(something):
         try:
             return (
-                something.decode("utf-8").encode("latin-1").decode("windows-1252")
+                something.decode("utf-8")
+                .encode("latin-1")
+                .decode("windows-1252")
             )
         except UnicodeEncodeError:
             return something.decode("utf-8")
@@ -80,6 +83,36 @@ def extract_tec(folder):
             emoname = mapping.get(emotion)
             d = emotion_mapping({emoname: 1}, mapping.values())
             yield {"source": "tec", "text": tweet, "emotions": d, "split": None}
+
+
+def extract_jointMultitaskEmo(folder):
+    mapping = {
+        "joy": "joy",
+        "sadness": "sadness",
+        "anger": "anger",
+        "surprise": "surprise",
+        "fear": "fear",
+        "disgust": "disgust",
+        "anticipation": "anticipation",
+        "noemotion": "noemo",
+        "other": "noemo",
+        "trust": "trust",
+    }
+    # Plutchik
+
+    emofile = path.join(folder, "emotion_multigenre_corpus_setences.txt")
+    with open(emofile) as e:
+        for eline in e:
+            emotion = eline.split("\t")[2].strip()
+            text = eline.split("\t")[1].strip()
+            emoname = mapping.get(emotion)
+            d = emotion_mapping({emoname: 1}, mapping.values())
+            yield {
+                "source": "jointMultitaskEmo",
+                "text": text,
+                "emotions": d,
+                "split": None,
+            }
 
 
 def extract_emoint(folder):
@@ -423,6 +456,7 @@ def extract_crowdflower(folder):
 
 def extract_meld(sub_dataset):
     """ Extract all data in MELD """
+
     def inner(folder):
         mapping = {
             "anger": "anger",
@@ -589,6 +623,7 @@ if __name__ == "__main__":
         "MELD": extract_meld("meld"),
         "MELD_Dyadic": extract_meld("meld-dya"),
         "emorynlp": extract_meld("emorynlp"),
+        "jointMultitaskEmo" : extract_jointMultitaskEmo,
         "README.md": None,
     }
     meta_info = {
@@ -604,7 +639,7 @@ if __name__ == "__main__":
                 "emorynlp",
             ],
             "VA": ["fb-valence-arousal-anon"],
-            "Plutchik": ["ssec", "EGK"],
+            "Plutchik": ["ssec", "EGK", "jointMultitaskEmo"],
             "Ekman+ne": ["emotiondata-aman"],
             # "VAD": ["EmoBank"],
             "Ekman-disgust-surprise": ["emoint"],
@@ -634,6 +669,7 @@ if __name__ == "__main__":
             "artificial_sentences": ["emotion-cause"],
             "fairytale_sentences": ["tales-emotion"],
             "fanfiction": ["EGK"],
+            "multidomain": ["jointMultitaskEmo"],
         },
         "labeled": {
             "multi": [
@@ -656,6 +692,7 @@ if __name__ == "__main__":
                 "MELD",
                 "MELD_Dyadic",
                 "emorynlp",
+                "jointMultitaskEmo",
             ],
         },
     }
