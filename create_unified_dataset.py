@@ -51,8 +51,8 @@ def emotion_mapping(emotions, dataset_emotions):
         "confusion",
         "anticipation",
         "shame",
-        "guilt"
-    ]  # ALL of them; 13ish
+        "guilt",
+    ]  # ALL of them; 11ish
 
     d = {emotion: None for emotion in all_emotions}
     for emotion in all_emotions:
@@ -551,9 +551,12 @@ if __name__ == "__main__":
                 "tales-emotion",
                 "affectivetext",
                 "TEC",
+                "MELD",
+                "MELD_Dyadic",
+                "emorynlp",
             ],
             "VA": ["fb-valence-arousal-anon"],
-            "Plutchik": ["ssec"],
+            "Plutchik": ["ssec", "EGK"],
             "Ekman+ne": ["emotiondata-aman"],
             # "VAD": ["EmoBank"],
             "Ekman-disgust-surprise": ["emoint"],
