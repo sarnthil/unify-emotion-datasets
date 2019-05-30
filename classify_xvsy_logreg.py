@@ -35,7 +35,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 
 from sklearn.metrics import classification_report
-
+from sklearn.externals import joblib
 
 np.random.seed(0)
 random.seed(0)
@@ -269,18 +269,31 @@ def get_wordlist_debug(dataset):
     return list(map(op.itemgetter(0), bag.most_common(5000)))
 
 
+def hacky_train_test_split(training, train_size=0.8, first=None, second=None):
+    tra, tes = [], []
+    for example in training:
+        if example.get("split") == "train" or example["source"] != second:
+            tra.append(example)
+        elif example.get("split") == "test":
+            tes.append(example)
+        else:
+            # don't try this at home
+            [tes, tra][random.random()<train_size].append(example)
+    return tra, tes
+
+
 def get_train_test(jsonfile, train, test):
-    same = train == test
+    same = test in train.split(",")
     training, testing = [], []
     with open(jsonfile) as f:
         for line in f:
             data = json.loads(line)
-            if data["source"] == train or (train is None and data["source"] != test):
+            if data["source"] in train.split(",") or (train is None and data["source"] != test):
                 training.append(data)
             elif data["source"] == test:
                 testing.append(data)
     if same:
-        training, testing = train_test_split(training, train_size=0.8)
+        training, testing = hacky_train_test_split(training, train_size=0.8, first=train, second=test)
     return training, testing
 
 
@@ -391,3 +404,4 @@ if __name__ == "__main__":
         args["--output"],
         mode,  # TODO
     )
+    joblib.dump(classifier, "classifier.pkl")
