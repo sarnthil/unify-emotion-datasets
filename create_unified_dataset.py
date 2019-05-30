@@ -518,7 +518,26 @@ def extract_fb_va(folder):
                 "source": "fb-valence-arousal-anon",
                 "text": text,
                 "emotions": emotion_mapping({}, []),
-                "VAD": {"valence": valence, "arousal": arousal, "dominance": None},
+                "VAD": {
+                    "valence": valence,
+                    "arousal": arousal,
+                    "dominance": None,
+                },
+                "split": None,
+            }
+
+
+def extract_EGK(folder):
+    with open(folder + "/fanfic_test.jsonl") as f:
+        for line in f:
+            row = json.loads(line)
+            emotions = row["emotions"]
+            emotions["noemo"] = emotions.pop("no-emo")
+            yield {
+                "source": row["source"],
+                "text": row["text"],
+                "emotions": emotion_mapping(emotions, emotions.keys()),
+                "VAD": {"valence": None, "arousal": None, "dominance": None},
                 "split": None,
             }
 
@@ -538,6 +557,7 @@ if __name__ == "__main__":
         "TEC": extract_tec,
         "emoint": extract_emoint,
         "electoraltweets": extract_electoraltweets,
+        "EGK": extract_EGK,
         "MELD": extract_meld("meld"),
         "MELD_Dyadic": extract_meld("meld-dya"),
         "emorynlp": extract_meld("emorynlp"),
@@ -567,7 +587,7 @@ if __name__ == "__main__":
         },
         "annotation_procedure": {
             "crowdsourcing": ["crowdflower"],
-            "expert annotation": ["emoint", "TEC"],
+            "expert annotation": ["emoint", "TEC", "EGK"],
         },
         "domain": {
             "tweets": [
@@ -580,14 +600,20 @@ if __name__ == "__main__":
             ],
             "facebook-messages": ["fb-valence-arousal-anon"],
             "headlines": ["affectivetext"],  # emobank,
-            "conversations": ["dailydialog"],
+            "conversations": ["dailydialog", "MELD", "MELD_Dyadic", "emorynlp"],
             "blogposts": ["emotiondata-aman"],
             "emotional_events": ["isear"],
             "artificial_sentences": ["emotion-cause"],
             "fairytale_sentences": ["tales-emotion"],
+            "fanfiction": ["EGK"],
         },
         "labeled": {
-            "multi": ["affectivetext", "ssec", "fb-valence-arousal-anon"],
+            "multi": [
+                "affectivetext",
+                "ssec",
+                "fb-valence-arousal-anon",
+                "EGK",
+            ],
             "single": [
                 "TEC",
                 "electoraltweets",
