@@ -2,10 +2,10 @@ import json
 import os
 from glob import glob
 from sklearn.model_selection import train_test_split
-import regex
+import re
 import csv
 
-TOKENS = regex.compile(r"\p{L}+|[.?!]")
+TOKENS = re.compile(r"\p{L}+|[.?!]")
 
 path = "/Users/sarnthil/seat/fastai/datasets/"
 
