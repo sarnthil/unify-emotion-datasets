@@ -14,7 +14,7 @@ Options:
     -k --keep-last        Quit immediately if results file found
 
 """
-import regex as re
+import re
 import sys
 import os
 import json
