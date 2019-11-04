@@ -36,8 +36,27 @@ Also, we advise you to cite the papers corresponding to the datasets you use.
 The corresponding `bibtex` citations you find in the file `datasets/README.md` or while
 running `download_datasets.py`. 
 
-# Paper
+# Paper/Reference
 [An Analysis of Annotated Corpora for Emotion Classification in Text](http://aclweb.org/anthology/C18-1179.pdf)
+
+If you plan to use this corpus, please use this citation:
+
+```
+@inproceedings{Bostan2018,
+  author = {Bostan, Laura Ana Maria and Klinger, Roman},
+  title = {An Analysis of Annotated Corpora for Emotion Classification in Text},
+  booktitle = {Proceedings of the 27th International Conference on Computational Linguistics},
+  year = {2018},
+  publisher = {Association for Computational Linguistics},
+  pages = {2104--2119},
+  location = {Santa Fe, New Mexico, USA},
+  url = {http://aclweb.org/anthology/C18-1179},
+  pdf = {http://aclweb.org/anthology/C18-1179.pdf}
+}
+```
+
+## Experimenting with classification
+
 If you want to reuse the code for the emotion classification task, see the script `classify_xvsy_logreg.py`:
 
  `python3 classify_xvsy_logreg.py --help` will show you the following: 
@@ -70,22 +89,4 @@ Examples of how to use it for various tasks:
 - selecting the instances of that have as a source `crowdflower` or `tec`
  `jq 'select(.source=="crowdflower" or .source =="tec")' <unified-dataset.jsonl | less `
 - count how often instances are annotated with high surprise per dataset
-`jq 'select(.emotions.surprise >0.5) | .source' <unified-dataset.jsonl | sort | uniq -c`   
-
-# Reference 
-If you plan to use this corpus, please use this citation:
-
-```
-@inproceedings{Bostan2018,
-  author = {Bostan, Laura Ana Maria and Klinger, Roman},
-  title = {An Analysis of Annotated Corpora for Emotion Classification in Text},
-  booktitle = {Proceedings of the 27th International Conference on Computational Linguistics},
-  year = {2018},
-  publisher = {Association for Computational Linguistics},
-  pages = {2104--2119},
-  location = {Santa Fe, New Mexico, USA},
-  url = {http://aclweb.org/anthology/C18-1179},
-  pdf = {http://aclweb.org/anthology/C18-1179.pdf}
-}
-```
-
+`jq 'select(.emotions.surprise >0.5) | .source' <unified-dataset.jsonl | sort | uniq -c`
