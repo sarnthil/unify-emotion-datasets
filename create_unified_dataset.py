@@ -360,30 +360,27 @@ def extract_emotion_cause(folder):
                     "split": None,
                 }
 
+
 def extract_emo_bank(folder):
-    def unstr(string):
-        if string.startswith('"') and string.endswith('"'):
-            return string[1:-1]
-        return string
     with open(folder + "/corpus/emobank.csv") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            Id = unstr(row['id'])
-            Text = unstr(row['text'])
-            V = unstr(row['V'])
-            A = unstr(row['A'])
-            D = unstr(row['D'])
+            text = row["text"]
+            valence = float(row["V"])
+            arousal = float(row["A"])
+            dominance = float(row["D"])
             yield {
                 "source": "emobank",
-                "text": Text,
+                "text": text,
                 "emotions": emotion_mapping({}, []),
                 "VAD": {
-                    "valence": V,
-                    "arousal": A,
-                    "dominance": D
+                    "valence": valence,
+                    "arousal": arousal,
+                    "dominance": dominance,
                 },
-                "split": None
+                "split": None,
             }
+
 
 def extract_affectivetext(folder):
     tag_pattern = re.compile(r"<[^>]+?>")
@@ -592,6 +589,7 @@ def extract_ssec(folder):
             for line in f:
                 yield from handle_line(line)
 
+
 def extract_fb_va(folder):
     with open(folder + "/dataset-fb-valence-arousal-anon.csv") as f:
         reader = csv.DictReader(f)
@@ -647,7 +645,7 @@ if __name__ == "__main__":
         "MELD": extract_meld("meld"),
         "MELD_Dyadic": extract_meld("meld-dya"),
         "emorynlp": extract_meld("emorynlp"),
-        "jointMultitaskEmo" : extract_jointMultitaskEmo,
+        "jointMultitaskEmo": extract_jointMultitaskEmo,
         "README.md": None,
     }
     meta_info = {
@@ -665,7 +663,7 @@ if __name__ == "__main__":
             "VA": ["fb-valence-arousal-anon"],
             "Plutchik": ["ssec", "EGK", "jointMultitaskEmo"],
             "Ekman+ne": ["emotiondata-aman"],
-             "VAD": ["EmoBank"], #
+            "VAD": ["EmoBank"],  #
             "Ekman-disgust-surprise": ["emoint"],
             "Ekman+CF": ["crowdflower"],
             "Ekman+ET": ["electoraltweets"],
@@ -686,7 +684,7 @@ if __name__ == "__main__":
                 "grounded_emotions",
             ],
             "facebook-messages": ["fb-valence-arousal-anon"],
-            "headlines": ["affectivetext","emobank"],  # emobank,
+            "headlines": ["affectivetext", "EmoBank"],
             "conversations": ["dailydialog", "MELD", "MELD_Dyadic", "emorynlp"],
             "blogposts": ["emotiondata-aman"],
             "emotional_events": ["isear"],
