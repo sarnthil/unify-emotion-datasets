@@ -79,8 +79,16 @@ def command(_, target, droot, __):
 
 
 def git(_, target, droot, __):
+    if isinstance(target, dict):
+        url = target["url"]
+        commit = target["commit"]
+    else:
+        url = target
+        commit = None
     shutil.rmtree(droot)
-    subprocess.run(["git", "clone", target, droot])
+    subprocess.run(["git", "clone", url, droot])
+    if commit:
+        subprocess.run(["git", "checkout", commit])
 
 
 handlers = {

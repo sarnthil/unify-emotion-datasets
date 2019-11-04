@@ -73,7 +73,7 @@
       "license": "cc-by-4.txt"
     },
     {
-      "git": "https://github.com/JULIELab/EmoBank"
+      "git": {"url": "https://github.com/JULIELab/EmoBank", "commit": "af25ab350b34753560cdebc790538abe92044dfd"}
     },
     {
       "cite": "@article{buechel2017emobank,\n     title={EMOBANK: Studying the Impact of Annotation Perspective and Representation Format on Dimensional Emotion Analysis},\n     author={Buechel, Sven and Hahn, Udo},\n     journal={EACL 2017},\n     pages={578},\n     year={2017}}"
