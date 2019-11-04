@@ -27,7 +27,7 @@ In case the dataset is not obtainable directly you will be given instructions on
 
 Then run the script that unifies the downloaded datasets, which will be located in `unify-emotion-datasets/datasets/`:
 
-`python3 create_unified_datasets.py`
+`python3 create_unified_dataset.py`
 
 
 This will create a new file called `unified-dataset.jsonl` in the same folder.
