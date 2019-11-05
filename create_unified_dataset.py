@@ -361,6 +361,27 @@ def extract_emotion_cause(folder):
                 }
 
 
+def extract_emo_bank(folder):
+    with open(folder + "/corpus/emobank.csv") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            text = row["text"]
+            valence = float(row["V"])
+            arousal = float(row["A"])
+            dominance = float(row["D"])
+            yield {
+                "source": "emobank",
+                "text": text,
+                "emotions": emotion_mapping({}, []),
+                "VAD": {
+                    "valence": valence,
+                    "arousal": arousal,
+                    "dominance": dominance,
+                },
+                "split": None,
+            }
+
+
 def extract_affectivetext(folder):
     tag_pattern = re.compile(r"<[^>]+?>")
     # need to change the columns?
@@ -606,6 +627,7 @@ def extract_EGK(folder):
 
 if __name__ == "__main__":
     extractors = {
+        "EmoBank": extract_emo_bank,
         "fb-valence-arousal-anon": extract_fb_va,
         "crowdflower": extract_crowdflower,
         "dailydialog": extract_dailydialogs,
@@ -623,7 +645,7 @@ if __name__ == "__main__":
         "MELD": extract_meld("meld"),
         "MELD_Dyadic": extract_meld("meld-dya"),
         "emorynlp": extract_meld("emorynlp"),
-        "jointMultitaskEmo" : extract_jointMultitaskEmo,
+        "jointMultitaskEmo": extract_jointMultitaskEmo,
         "README.md": None,
     }
     meta_info = {
@@ -641,7 +663,7 @@ if __name__ == "__main__":
             "VA": ["fb-valence-arousal-anon"],
             "Plutchik": ["ssec", "EGK", "jointMultitaskEmo"],
             "Ekman+ne": ["emotiondata-aman"],
-            # "VAD": ["EmoBank"],
+            "VAD": ["EmoBank"],  #
             "Ekman-disgust-surprise": ["emoint"],
             "Ekman+CF": ["crowdflower"],
             "Ekman+ET": ["electoraltweets"],
@@ -662,7 +684,7 @@ if __name__ == "__main__":
                 "grounded_emotions",
             ],
             "facebook-messages": ["fb-valence-arousal-anon"],
-            "headlines": ["affectivetext"],  # emobank,
+            "headlines": ["affectivetext", "EmoBank"],
             "conversations": ["dailydialog", "MELD", "MELD_Dyadic", "emorynlp"],
             "blogposts": ["emotiondata-aman"],
             "emotional_events": ["isear"],
