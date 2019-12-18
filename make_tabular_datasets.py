@@ -26,7 +26,7 @@ def main():
             text = tokenize(datum["text"])
             examples.append((emotion, text))
             examples_by_source[source].append((emotion, text))
-    with open("{source}.csv", "w") as csvfile:
+    with open("unified.csv", "w") as csvfile:
         fieldnames = ["label", "text"]
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
