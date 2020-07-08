@@ -24,8 +24,7 @@ This file is a meta-README for all the datasets used in emotion recognition that
 |emoint|
 |electoraltweets|
 |Figure Eight Labelled Textual Dataset
-|Figure-Eight|2020 ?|available to download|Tweets containing a descriptor of the emotion they evoke |text|40k tweets|joy, sadness, surprised, worry
-, empty, neutral, love|
+|Figure-Eight|2020 ?|available to download|Tweets containing a descriptor of the emotion they evoke |text|40k tweets|joy, sadness, surprised, worry, empty, neutral, love|
 
 
 
