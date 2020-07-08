@@ -23,8 +23,7 @@ This file is a meta-README for all the datasets used in emotion recognition that
 |tales-emotions|Cecilia Ovesdotter Alm|2005|gplv3| Dataset of manually annotated tales used in a document classification task |text|15k sents| angry, disgusted, fearful, happy, sad, surprised, mood (positive, negative)|
 |emoint|
 |electoraltweets|
-|Figure Eight Labelled Textual Dataset
-|Figure-Eight|2020 ?|available to download|Tweets containing a descriptor of the emotion they evoke |text|40k tweets|joy, sadness, surprised, worry, empty, neutral, love|
+|Figure Eight Labelled Textual Dataset |Figure-Eight|2020 ?|available to download|Tweets containing a descriptor of the emotion they evoke |text|40k tweets|joy, sadness, surprised, worry, empty, neutral, love|
 
 
 
