@@ -57,7 +57,7 @@
   ],
   "crowdflower": [
     {
-      "download": {"url": "https://www.crowdflower.com/wp-content/uploads/2016/07/text_emotion.csv"}
+      "download": {"url": "https://raw.githubusercontent.com/tlkh/text-emotion-classification/master/dataset/original/text_emotion.csv"}
     }
   ],
   "fb-valence-arousal-anon": [
