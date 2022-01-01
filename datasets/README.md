@@ -23,6 +23,7 @@ This file is a meta-README for all the datasets used in emotion recognition that
 |tales-emotions|Cecilia Ovesdotter Alm|2005|gplv3| Dataset of manually annotated tales used in a document classification task |text|15k sents| angry, disgusted, fearful, happy, sad, surprised, mood (positive, negative)|
 |emoint|
 |electoraltweets|
+|Goemotions|Google Research|2021|Creative Common| A Dataset for Fine-Grained Emotion Classification |text|58k sents| admiration, amusement, anger, annoyance, approval, caring, confusion, curiosity, desire, disappointment, disapproval, disgust, embarrassment, excitement, fear, gratitude, grief, joy, love, nervousness, optimism, pride, realization, relief, remorse, sadness, surprise, neutral|
 
 
 
