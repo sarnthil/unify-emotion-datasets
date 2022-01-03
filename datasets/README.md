@@ -23,6 +23,7 @@ This file is a meta-README for all the datasets used in emotion recognition that
 |tales-emotions|Cecilia Ovesdotter Alm|2005|gplv3| Dataset of manually annotated tales used in a document classification task |text|15k sents| angry, disgusted, fearful, happy, sad, surprised, mood (positive, negative)|
 |emoint|
 |electoraltweets|
+|Goemotions|Google Research|2020|Creative Common| A Dataset for Fine-Grained Emotion Classification |text|58k sents| admiration, amusement, anger, annoyance, approval, caring, confusion, curiosity, desire, disappointment, disapproval, disgust, embarrassment, excitement, fear, gratitude, grief, joy, love, nervousness, optimism, pride, realization, relief, remorse, sadness, surprise, neutral|
 
 
 
@@ -569,6 +570,52 @@ The files ending in `.agree` contains only sentences with AFFECTIVE HIGH AGGREME
 
 #### Remarks:
 
+
+
+
+### GoEmotions
+
+* Authors: Google Research
+* Description: A corpus of 58k carefully curated comments extracted from Reddit, with human annotations to 27 emotion categories or Neutral.
+* Size: 58k reddit comments
+* Version: 1.0
+* Categories: admiration, amusement, anger, annoyance, approval, caring, confusion, curiosity, desire, disappointment, disapproval, disgust, embarrassment, excitement, fear, gratitude, grief, joy, love, nervousness, optimism, pride, realization, relief, remorse, sadness, surprise, neutral
+* Annotation: Comments
+* Approaches:
+* Format:
+* Link: http://ai.googleblog.com/2021/10/goemotions-dataset-for-fine-grained.html
+* Contact: Dana Alon and Jeongwoo Ko, Software Engineers, Google Research
+
+#### Format:
+Data is separated into 3 files, each has a text column and 0, 1 columns to represent each of the underlying emotion
+
+#### Sample:
+
+
+#### Papers:
+
+*[Dorottya Demszky, Dana Movshovitz-Attias, Jeongwoo Ko, Alan Cowen, Gaurav Nemade, Sujith Ravi: A Dataset of Fine-Grained Emotions](https://arxiv.org/abs/2005.00547)
+
+
+#### Bibtex entries for the papers:
+
+    @inproceedings{demszky-2020-goemotions,
+    title = "{G}o{E}motions: A Dataset of Fine-Grained Emotions",
+    author = "Demszky, Dorottya  and
+      Movshovitz-Attias, Dana  and
+      Ko, Jeongwoo  and
+      Cowen, Alan  and
+      Nemade, Gaurav  and
+      Ravi, Sujith",
+    booktitle = "Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics",
+    month = jul,
+    year = "2020",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/2020.acl-main.372",
+    pages = "4040--4054",}
+
+#### Remarks:
 
 
 
