@@ -8,7 +8,7 @@
 ## Installing Python dependencies
 
 - `pip3 install requests sh click` 
-- `pip3 install regex docopt numpy sklearn scipy`, if you want to use `classify_xvsy_logreg.py`
+- `pip3 install regex docopt numpy scikit-learn scipy`, if you want to use `classify_xvsy_logreg.py`
 - `git clone git@github.com:sarnthil/unify-emotion-datasets.git`
 
 
